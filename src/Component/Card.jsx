@@ -5,8 +5,8 @@ import img3 from "../assets/verified.jpg"
 function Card() {
   return (
     <div>
-      <div className="mt-5 text-center ">
-        <div className="w-[350px]  mx-auto  shadow-2xl ">
+      <div className="mt-5 text-center rounded-b-2xl ">
+        <div className="w-[350px]   rounded-b-2xl shadow-xl ">
           <div className="text-center">
             <div className="bg-[#155fc8] rounded-t-2xl text-sm p-2 text-white">
               <h1>Standard Ticket</h1>
@@ -29,14 +29,17 @@ function Card() {
               alt="Card Image"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 flex items-end justify-center bg-black bg-opacity-50">
-              <h2 className="text-white text-lg font-semibold">Overlay Text</h2>
+            <div className="absolute inset-0 flex items-end justify-center bg-black bg-opacity-60">
+              <h2 className="text-white text-lg  flex flex-col">
+                Taylor Swift | The Eras Tour
+                <span className='font-light text-sm mb-2'>Sun • Oct 20 • 7:00 PM • Hard Rock Stadium</span>
+              </h2>
             </div>
           </div>
 
           <div className="flex  flex-col">
             <img className="p-5" src={img2} alt="" />
-            <h1 className='mt-4 font-semibold text-blue-500'>Ticket Details</h1>
+            <h1 className="mt-4 font-semibold text-blue-500">Ticket Details</h1>
             <img className="mt-7 rounded-b-2xl" src={img3} alt="" />
           </div>
         </div>

@@ -6,3 +6,7 @@
     font-family: "Poppins", serif;
  
 }
+
+.hide-controls .carousel-control {  
+    display: none;  
+}
