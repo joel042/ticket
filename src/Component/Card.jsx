@@ -32,7 +32,7 @@ function Card() {
             <div className="absolute inset-0 flex items-end justify-center bg-black bg-opacity-60">
               <h2 className="text-white text-lg  flex flex-col">
                 Taylor Swift | The Eras Tour
-                <span className='font-light text-sm mb-2'>Sun • Oct 20 • 7:00 PM • Hard Rock Stadium</span>
+                <span className='font-light text-sm mb-2'>Fri • Oct 25 • 7:00 PM • Caesars Superdome</span>
               </h2>
             </div>
           </div>
