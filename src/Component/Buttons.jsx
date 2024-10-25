@@ -1,30 +1,26 @@
-import Checkbox from './Checkbox';
-import React, { useState } from 'react';
-import img4 from ".././assets/icons8-ticket-50 (2).png"
+import Checkbox from "./Checkbox";
+import React, { useState } from "react";
+import img4 from ".././assets/icons8-ticket-50 (2).png";
 import iconFW from ".././assets/icons8-forward-26.png";
 import infoIcocn from ".././assets/icons8-info.svg";
+import { Link } from "react-router-dom";
 
 
 function Buttons() {
-  // State to manage the checkboxes
-  const [checkboxes, setCheckboxes] = useState([false, false,]);
-
-  // Function to handle checkbox change
-  const handleCheckboxChange = (index) => {
-    const updatedCheckboxes = checkboxes.map((checkbox, idx) => {
-      if (idx === index) {
-        return !checkbox; // Toggle the checkbox at the clicked index
-      }
-      return checkbox; // Keep the state of other checkboxes unchanged
-    });
-    setCheckboxes(updatedCheckboxes);
-  };
-  const countChecked = checkboxes.filter((checked) => checked).length;
   const [isOpen, setIsOpen] = useState(false);
+
 
   const toggleOffcanvas = () => {
     setIsOpen(!isOpen);
   };
+
+    const handleTransferClick = (e) => {
+      if (!isOpen) {
+        e.preventDefault(); // Prevent navigation if off-canvas is closed
+      } else {
+        console.log("Transfer link clicked");
+      }
+    };
 
   return (
     <div>
@@ -86,43 +82,38 @@ function Buttons() {
             </div>
           </div>
           {/* checkbox */}
-                {/* countcheck */}
-          {/* {checkboxes.map((isChecked, index) => (
-            <label key={index}>
-              <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={() => handleCheckboxChange(index)}
-              />
-              Checkbox {index + 1}
-            </label>
-          ))} */}
 
           <div className="flex gap-2 mb-7 p-4 ">
-            <Checkbox seatNumber="SEAT 7 "   />
+            <Checkbox seatNumber="SEAT 7 " />
             <Checkbox seatNumber="SEAT 8 " />
           </div>
           <hr className="py-4" />
           <div className="flex  justify-between items-center p-2 bg-gray-100 h-[100px]">
             <div>
-              <p>{countChecked} Selected</p>
+              <p>Selected</p>
             </div>
             <div>
-              <p className="font-semibold text-blue-600 flex">
-                TRANSFER TO{" "}
-                <span className="">
-                  <img src={iconFW} alt="" />
-                </span>
-              </p>
+              {
+                <Link
+                  onClick={(handleTransferClick, toggleOffcanvas)}
+                  to="/transfer-form"
+                >
+                  <p className="font-medium text-xl cursor-pointer items-center gap-1 text-blue-600 flex">
+                    TRANSFER TO
+                    <span className="">
+                      <img src={iconFW} className="size-5" alt="" />
+                    </span>
+                  </p>
+                </Link>
+              }
             </div>
           </div>
-          {/* <button onClick={toggleOffcanvas} className="mt-4 text-red-600">
-            Close
-          </button> */}
         </div>
       </div>
+
+      {/* modal2 */}
     </div>
   );
 }
 
-export default Buttons
+export default Buttons;
