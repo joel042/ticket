@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from './Component/NavBar';
 import Slider from "./Component/Slider";
+// import Offcanvas from './Component/Offcanvas';
 //  import { Button } from "flowbite-react";
 // import Buttons from './Component/Buttons';
 
@@ -13,6 +14,7 @@ function App() {
           <Slider />
          {/* <Buttons /> */}
         </div>
+        {/* <Offcanvas /> */}
       </div>
     </>
   );

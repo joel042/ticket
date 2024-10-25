@@ -1,21 +1,22 @@
 "use client";
 
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Component() {
-  const [openModal, setOpenModal] = useState(true);
-  const emailInputRef = useRef < HTMLInputElement > null;
+  const [openModal, setOpenModal] = useState(false); // Initializes the modal state to be closed
+  const emailInputRef = useRef < HTMLInputElement > null; // Ref for the email input field
 
   return (
     <>
-      <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
-      <Modal
-        show={openModal}
+      <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>{" "}
+      {/* Button to open the modal */}
+      <Modal hidden
+        show={openModal} // Controls visibility of the modal based on state
         size="md"
         popup
-        onClose={() => setOpenModal(false)}
-        initialFocus={emailInputRef}
+        onClose={() => setOpenModal(false)} // Close modal on external close trigger
+        initialFocus={emailInputRef} // Focus on email input when modal opens
       >
         <Modal.Header />
         <Modal.Body>
@@ -29,7 +30,7 @@ export function Component() {
               </div>
               <TextInput
                 id="email"
-                ref={emailInputRef}
+                ref={emailInputRef} // Input reference
                 placeholder="name@company.com"
                 required
               />
