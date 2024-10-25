@@ -27,7 +27,7 @@ function Buttons() {
 
       <Modal
         show={openModal}
-        size="md"
+        size="7xl"
         popup
         onClose={() => setOpenModal(false)}
         initialFocus={emailInputRef}
@@ -105,7 +105,7 @@ function Buttons() {
            
             <div className="w-full flex gap-2">
               <Button className='bg-red-600'>Cancel</Button>
-              <Button className='bg-[#026cdf]'>Transfer To</Button>
+              <Button  className='bg-[#026cdf]'>Transfer To</Button>
             </div>
           </div>
         </Modal.Body>

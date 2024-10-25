@@ -16,10 +16,10 @@ function Card() {
                 SEC <span>A3</span>
               </h1>
               <h1 className="flex flex-col text-center">
-                SEC <span>A3</span>
+                ROW <span>12</span>
               </h1>
               <h1 className="flex flex-col text-center">
-                SEC <span>A3</span>
+                SEAT <span>7</span>
               </h1>
             </div>
           </div>
