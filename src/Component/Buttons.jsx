@@ -1,14 +1,30 @@
 import Checkbox from './Checkbox';
-import React, { useState } from 'react'
-
+import React, { useState } from 'react';
+import img4 from ".././assets/icons8-ticket-50 (2).png"
+import iconFW from ".././assets/icons8-forward-26.png";
+import infoIcocn from ".././assets/icons8-info.svg";
 
 
 function Buttons() {
-    const [isOpen, setIsOpen] = useState(false);
+  // State to manage the checkboxes
+  const [checkboxes, setCheckboxes] = useState([false, false,]);
 
-    const toggleOffcanvas = () => {
-      setIsOpen(!isOpen);
-    };
+  // Function to handle checkbox change
+  const handleCheckboxChange = (index) => {
+    const updatedCheckboxes = checkboxes.map((checkbox, idx) => {
+      if (idx === index) {
+        return !checkbox; // Toggle the checkbox at the clicked index
+      }
+      return checkbox; // Keep the state of other checkboxes unchanged
+    });
+    setCheckboxes(updatedCheckboxes);
+  };
+  const countChecked = checkboxes.filter((checked) => checked).length;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOffcanvas = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div>
@@ -46,10 +62,10 @@ function Buttons() {
           <div className="gap-[300px]  text-center  p-4 font-semibold py-1">
             <p className="text-center">SELECT TICKETS TO TRANSFER</p>
           </div>
-          <hr className="border w-full mb-6" />
-          <div className="border p-4 bg-gray-50 flex justify-between h-[120px]">
+          <hr className="border w-full  mb-6" />
+          <div className="border border-black m-4 bg-gray-50 flex items-center gap-4 h-[120px] md:h-[200px]">
             <div>
-              <img src="" alt="" />
+              <img src={infoIcocn} className="size-40" alt="" />
             </div>
             <div>
               <p>
@@ -59,28 +75,45 @@ function Buttons() {
             </div>
           </div>
 
-          <div className="secA3 p-4 flex justify-between mt-4 ">
-            <div className="flex gap-2">
+          <div className="secA3 text-gray-500 p-4 flex justify-between mt-4 ">
+            <div className="flex text-xl gap-2">
               <p>Sec A3</p>
               <p>Row 12</p>
             </div>
-            <div>
-              <img src="" alt="" />
+            <div className="flex  gap-3">
+              <img className="size-5 " src={img4} alt="" />
               <p>2 Tickets</p>
             </div>
           </div>
           {/* checkbox */}
+                {/* countcheck */}
+          {/* {checkboxes.map((isChecked, index) => (
+            <label key={index}>
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={() => handleCheckboxChange(index)}
+              />
+              Checkbox {index + 1}
+            </label>
+          ))} */}
+
           <div className="flex gap-2 mb-7 p-4 ">
-            <Checkbox seatNumber="SEAT 7 " />
+            <Checkbox seatNumber="SEAT 7 "   />
             <Checkbox seatNumber="SEAT 8 " />
           </div>
           <hr className="py-4" />
-          <div className="flex p-4 justify-between items-center p-2 bg-gray-100 h-[100px]">
+          <div className="flex  justify-between items-center p-2 bg-gray-100 h-[100px]">
             <div>
-              <p>0 Selected</p>
+              <p>{countChecked} Selected</p>
             </div>
             <div>
-              <p className="font-bold text-blue-600">TRANSFER TO</p>
+              <p className="font-semibold text-blue-600 flex">
+                TRANSFER TO{" "}
+                <span className="">
+                  <img src={iconFW} alt="" />
+                </span>
+              </p>
             </div>
           </div>
           {/* <button onClick={toggleOffcanvas} className="mt-4 text-red-600">
