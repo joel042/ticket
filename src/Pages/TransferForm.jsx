@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 import Slider from "../Component/Slider";
 import { Link } from "react-router-dom";
-import img1 from ".././assets/icons8-ticket-50 (2).png"
+// import img1 from ".././assets/icons8-ticket-50 (2).png"
 
-const TransferForm = () => {
+const TransferForm = (props) => {
+    const { change } = props;
   const [isOpen, setIsOpen] = useState(true);
-
+ 
   const toggleOffcanvas = () => {
     setIsOpen(!isOpen);
   };
@@ -35,7 +36,7 @@ const TransferForm = () => {
             <hr />
             {/* sec */}
             <div className="secA3 text-gray-500 p-4 mt-4 ">
-              <p className="text-black mb-2">0 Tickets Selected</p>
+              <p className="text-black mb-2"><span>{count}</span> Tickets Selected</p>
               <div className="flex text-sm gap-7">
                 <p className="flex flex-col">
                   Sec <span>A3</span>
@@ -92,7 +93,7 @@ const TransferForm = () => {
                   onClick={toggleOffcanvas}
                   className="bg-[#026cdf] text-sm h-11 w-[160px] rounded-md text-white"
                 >
-                  Transfer 0 Tickets
+                  Transfer  Tickets
                 </button>
                 <div>
                   {

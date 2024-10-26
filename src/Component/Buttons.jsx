@@ -6,8 +6,23 @@ import infoIcocn from ".././assets/icons8-info.svg";
 import { Link } from "react-router-dom";
 
 
+
+
 function Buttons() {
+
   const [isOpen, setIsOpen] = useState(false);
+const [count,setCount] = useState(0);
+
+
+const handleClicked = () => {
+ if (event.target.checked) {
+   setCount((prevCounter) => prevCounter + 1);
+ } else {
+   setCount((prevCounter) => prevCounter - 1);
+ }
+ console.log("clicked", event.target.checked)
+}
+
 
 
   const toggleOffcanvas = () => {
@@ -31,10 +46,10 @@ function Buttons() {
         >
           Transfer
         </button>
-
+    
         <button
           className="bg-[#026cdf]  w-[160px] rounded-md h-11 text-white"
-          onClick={() => console.log("Button 2 clicked")}
+          onClick={handleClicked}
         >
           Sell
         </button>
@@ -78,19 +93,24 @@ function Buttons() {
             </div>
             <div className="flex  gap-3">
               <img className="size-5 " src={img4} alt="" />
-              <p>2 Tickets</p>
+              <p>
+                <span>{count}</span> Tickets
+              </p>
             </div>
           </div>
           {/* checkbox */}
-
+        
           <div className="flex gap-2 mb-7 p-4 ">
-            <Checkbox seatNumber="SEAT 7 " />
-            <Checkbox seatNumber="SEAT 8 " />
+            <Checkbox seatNumber="SEAT 7 " change={handleClicked} />
+            <Checkbox seatNumber="SEAT 8 " change={handleClicked} />
           </div>
           <hr className="py-4" />
           <div className="flex  justify-between items-center p-2 bg-gray-100 h-[100px]">
             <div>
-              <p>Selected</p>
+              <p>
+                {" "}
+                <span> {count}</span> Selected
+              </p>
             </div>
             <div>
               {

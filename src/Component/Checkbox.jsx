@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 const Checkbox = (props) => {
-  const { seatNumber } = props;
+  const { seatNumber,change} = props;
 
   // State to manage the checkboxes
 
@@ -15,6 +15,7 @@ const Checkbox = (props) => {
       {/* Custom Checkbox */}
       <div className="relative  mt-4 rounded-b-lg">
         <input
+        onChange={change}
           type="checkbox"
           id="checkbox"
           className="border  size-7 cursor-pointer rounded-full"
