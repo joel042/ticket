@@ -4,8 +4,7 @@ import Slider from "../Component/Slider";
 import { Link } from "react-router-dom";
 // import img1 from ".././assets/icons8-ticket-50 (2).png"
 
-const TransferForm = (props) => {
-    const { change } = props;
+const TransferForm = () => {
   const [isOpen, setIsOpen] = useState(true);
  
   const toggleOffcanvas = () => {
@@ -36,7 +35,7 @@ const TransferForm = (props) => {
             <hr />
             {/* sec */}
             <div className="secA3 text-gray-500 p-4 mt-4 ">
-              <p className="text-black mb-2"><span>{count}</span> Tickets Selected</p>
+              <p className="text-black mb-2"><span></span> Tickets Selected</p>
               <div className="flex text-sm gap-7">
                 <p className="flex flex-col">
                   Sec <span>A3</span>
