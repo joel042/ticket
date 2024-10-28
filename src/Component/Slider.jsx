@@ -10,10 +10,10 @@ function Slider() {
         <Carousel
          
           slide={false}
-          className="w-[350px]  "
-          indicators={false}
+          className="w-[350px] h-[650px] "
+          indicators={true}
+          leftControl={'.'}
         >
-          <Card />
           <Card />
           <Card />
         </Carousel>

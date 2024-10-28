@@ -1,12 +1,15 @@
 // src/BottomOffcanvas.js
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Slider from "../Component/Slider";
 import { Link } from "react-router-dom";
-// import img1 from ".././assets/icons8-ticket-50 (2).png"
+import { ContextFile } from "../Context/ContextFile";
+
 
 const TransferForm = () => {
+
   const [isOpen, setIsOpen] = useState(true);
- 
+   const { count, setCount  } = useContext(ContextFile);
+   console.log(count, "TransferForm");
   const toggleOffcanvas = () => {
     setIsOpen(!isOpen);
   };
@@ -14,12 +17,6 @@ const TransferForm = () => {
   return (
     <>
       <div className="relative ">
-        {/* <button
-        onClick={toggleOffcanvas}
-        className="px-4 py-2 text-white bg-blue-600 rounded shadow"
-      >
-        Toggle Offcanvas
-      </button> */}
         <Slider />
         <div
           className={`fixed inset-x-0 bottom-0 transform transition-transform duration-300 ease-in-out bg-white shadow-lg ${
@@ -35,7 +32,9 @@ const TransferForm = () => {
             <hr />
             {/* sec */}
             <div className="secA3 text-gray-500 p-4 mt-4 ">
-              <p className="text-black mb-2"><span></span> Tickets Selected</p>
+              <p className="text-black mb-2">
+                <span>{count}</span> Tickets Selected
+              </p>
               <div className="flex text-sm gap-7">
                 <p className="flex flex-col">
                   Sec <span>A3</span>
@@ -92,21 +91,26 @@ const TransferForm = () => {
                   onClick={toggleOffcanvas}
                   className="bg-[#026cdf] text-sm h-11 w-[160px] rounded-md text-white"
                 >
-                  Transfer  Tickets
+                  Transfer Tickets
                 </button>
                 <div>
                   {
                     <Link to="/">
-                      <p className="font-medium text-LG cursor-pointer items-center gap-1 text-blue-600 flex">
-                        <span className="">
-                          <img
-                            src="https://img.icons8.com/?size=100&id=39800&format=png&color=026BDD"
-                            className="size-5"
-                            alt=""
-                          />
-                        </span>
-                        BACK
-                      </p>
+                      {
+                        <p
+                          
+                          className="font-medium text-LG cursor-pointer items-center gap-1 text-blue-600 flex"
+                        >
+                          <span className="">
+                            <img
+                              src="https://img.icons8.com/?size=100&id=39800&format=png&color=026BDD"
+                              className="size-5"
+                              alt=""
+                            />
+                          </span>
+                          BACK
+                        </p>
+                      }
                     </Link>
                   }
                 </div>

@@ -1,9 +1,10 @@
 import Checkbox from "./Checkbox";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import img4 from ".././assets/icons8-ticket-50 (2).png";
 import iconFW from ".././assets/icons8-forward-26.png";
 import infoIcocn from ".././assets/icons8-info.svg";
 import { Link } from "react-router-dom";
+import { ContextFile } from "../Context/ContextFile";
 
 
 
@@ -11,7 +12,9 @@ import { Link } from "react-router-dom";
 function Buttons() {
 
   const [isOpen, setIsOpen] = useState(false);
-const [count,setCount] = useState(0);
+// const [count,setCount] = useState();
+   const { count,setCount } = useContext(ContextFile);
+
 
 
 const handleClicked = () => {
