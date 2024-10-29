@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 
 import TransferForm from "./Pages/TransferForm";
 
+
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
           <Slider />
          
         </div> */}
+
 
         <Routes>
           <Route path="/" element={<Slider />} />
